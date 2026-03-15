@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Schachclub Pratteln</title>
+  <title>Schachclub Pratteln – Schach spielen in Pratteln</title>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='white'/><text x='50' y='95' font-size='110' text-anchor='middle'>♞</text></svg>">
   
@@ -28,6 +28,21 @@
     --color-chess-text: #f4f4f5;
     --color-chess-muted: #a1a1aa;
     --color-chess-accent: #d4af37;
+  }
+
+  .section-glow {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .section-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at top center, rgba(212, 175, 55, 0.08), transparent 45%);
+    z-index: -1;
+    pointer-events: none;
   }
 
   .carousel-dot {
@@ -81,7 +96,7 @@
       class="absolute inset-0 w-full h-full object-cover opacity-50"
       />
 
-      <div class="absolute inset-0 bg-black/10"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/25"></div>
 
       <div class="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
         <div class="max-w-3xl">
@@ -89,7 +104,7 @@
             Strategie. Gemeinschaft. Spannung.
           </p>
 
-          <h1 class="text-4xl font-extrabold leading-tight md:text-6xl">
+          <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
             Make your Move!
           </h1>
 
@@ -101,14 +116,14 @@
           <div class="mt-10 flex flex-wrap gap-4">
             <a
               href="#kontakt"
-              class="rounded-xl bg-chess-accent px-6 py-3 font-semibold text-black transition hover:scale-[1.02]"
+              class="rounded-xl bg-chess-accent px-6 py-3 font-semibold text-black shadow-lg shadow-yellow-500/20 transition duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-yellow-500/30"
             >
               Jetzt Kontakt aufnehmen
             </a>
 
             <a
               href="#termine"
-              class="rounded-xl border border-chess-line bg-chess-surface px-6 py-3 font-semibold text-chess-text transition hover:border-chess-accent hover:text-chess-accent"
+              class="rounded-xl border border-white/10 bg-white/5 px-6 py-3 font-semibold text-chess-text backdrop-blur-sm transition duration-300 hover:border-chess-accent hover:text-chess-accent hover:bg-white/10"
             >
               Termine ansehen
             </a>
@@ -120,7 +135,8 @@
     <!-- Erwartung -->
     <section id="erwartung" class="py-24 scroll-mt-24">
   <div class="mx-auto max-w-6xl px-4 md:px-6">
-    <div class="mb-10 max-w-2xl">
+    <div class="mb-10 max-w-2xl relative pl-5">
+      <span class="absolute left-0 top-1 h-12 w-1 rounded-full bg-chess-accent/80"></span>
       <p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-chess-accent">
         Was dich erwartet
       </p>
@@ -157,11 +173,13 @@
         <div id="carouselTrack" class="relative h-[460px] md:h-[420px]">
           
           <article class="carousel-slide absolute left-1/2 top-1/2 w-[78%] max-w-xl rounded-3xl border border-chess-line bg-chess-surface p-8 shadow-2xl shadow-black/30 transition-all duration-700 ease-in-out">
-            <img
-              src="schachabend.png"
-              alt="Spieler beim Schachabend"
-              class="mb-6 h-44 w-full rounded-2xl object-cover"
-            />
+            <div class="mb-6 overflow-hidden rounded-2xl">
+              <img
+                  src="schachabend.png"
+                  alt="Spieler beim Schachabend"
+                  class="h-44 w-full object-cover transition duration-500 hover:scale-[1.02]"
+                />
+              </div>
                      
             <h3 class="text-2xl font-semibold">Familiäre Atmosphäre</h3>
             <p class="mt-3 leading-7 text-chess-muted">
@@ -171,11 +189,13 @@
           </article>
 
           <article class="carousel-slide absolute left-1/2 top-1/2 w-[78%] max-w-xl rounded-3xl border border-chess-line bg-chess-surface p-8 shadow-2xl shadow-black/30 transition-all duration-700 ease-in-out">
-            <img
-              src="spielabend.png"
-              alt="Spielabend"
-              class="mb-6 h-44 w-full rounded-2xl object-cover"
-            />
+            <div class="mb-6 overflow-hidden rounded-2xl">
+              <img
+                src="spielabend.png"
+                alt="Spielabend"
+                class="h-44 w-full object-cover transition duration-500 hover:scale-[1.02]"
+              />
+            </div>
             <h3 class="text-2xl font-semibold">Regelmässige Spielabende</h3>
             <p class="mt-3 leading-7 text-chess-muted">
               Jede Woche treffen wir uns zu spannenden Partien. Die genauen Termine
@@ -184,11 +204,13 @@
           </article>
 
           <article class="carousel-slide absolute left-1/2 top-1/2 w-[78%] max-w-xl rounded-3xl border border-chess-line bg-chess-surface p-8 shadow-2xl shadow-black/30 transition-all duration-700 ease-in-out">
-            <img
-              src="tipps_tricks.png"
-              alt="Tipps und Tricks"
-              class="mb-6 h-44 w-full rounded-2xl object-cover"
-            />
+            <div class="mb-6 overflow-hidden rounded-2xl">
+              <img
+                src="tipps_tricks.png"
+                alt="Tipps und Tricks"
+                class="h-44 w-full object-cover transition duration-500 hover:scale-[1.02]"
+              />
+            </div>
             <h3 class="text-2xl font-semibold">Tipps und Tricks</h3>
             <p class="mt-3 leading-7 text-chess-muted">
               Egal ob Anfänger oder erfahrener Spieler – bei uns lernst du ständig
@@ -197,11 +219,13 @@
           </article>
 
           <article class="carousel-slide absolute left-1/2 top-1/2 w-[78%] max-w-xl rounded-3xl border border-chess-line bg-chess-surface p-8 shadow-2xl shadow-black/30 transition-all duration-700 ease-in-out">
-            <img
-              src="am_brett_zählt_es.png"
-              alt="Am Brett zählt es"
-              class="mb-6 h-44 w-full rounded-2xl object-cover"
-            />
+            <div class="mb-6 overflow-hidden rounded-2xl">
+              <img
+                src="am_brett_zählt_es.png"
+                alt="Am Brett zählt es"
+                class="h-44 w-full object-cover transition duration-500 hover:scale-[1.02]"
+              />
+            </div>
             <h3 class="text-2xl font-semibold">Am Brett zählt es</h3>
             <p class="mt-3 leading-7 text-chess-muted">
               Lass die Online-Partien beiseite und spiel eine echte Partie mit uns.
@@ -209,11 +233,13 @@
           </article>
 
           <article class="carousel-slide absolute left-1/2 top-1/2 w-[78%] max-w-xl rounded-3xl border border-chess-line bg-gradient-to-br from-chess-surface to-chess-surface-2 p-8 shadow-2xl shadow-black/30 transition-all duration-700 ease-in-out">
-            <img
-              src="messe_dich_am_brett.png"
-              alt="Messe dich am Brett"
-              class="mb-6 h-44 w-full rounded-2xl object-cover"
-            />
+            <div class="mb-6 overflow-hidden rounded-2xl">
+              <img
+                src="messe_dich_am_brett.png"
+                alt="Messe dich am Brett"
+                class="h-44 w-full object-cover transition duration-500 hover:scale-[1.02]"
+              />
+            </div>
             <h3 class="text-2xl font-semibold text-chess-accent">Messe dich am Brett</h3>
             <p class="mt-3 leading-7 text-chess-muted">
               Turniere. Wettbewerb. Spannung. Erlebe Schach in seiner besten Form.
@@ -231,9 +257,10 @@
 </section>
 
     <!-- Termine -->
-    <section id="termine" class="py-24 scroll-mt-24">
+    <section id="termine" class="py-28 md:py-32 scroll-mt-24">
       <div class="mx-auto max-w-6xl px-6 py-20">
-        <div class="mb-10 max-w-2xl">
+        <div class="mb-10 max-w-2xl relative pl-5">
+        <span class="absolute left-0 top-1 h-12 w-1 rounded-full bg-chess-accent/80"></span>
           <p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-chess-accent">
             Termine
           </p>
@@ -244,7 +271,7 @@
         </div>
 
         <div class="grid gap-6 md:grid-cols-2">
-          <div class="rounded-2xl border border-chess-line bg-chess-surface p-6">
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/20 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-chess-accent/60 hover:shadow-2xl hover:shadow-black/30">
             <p class="text-sm uppercase tracking-widest text-chess-muted">Jugendtraining</p>
             <h3 class="mt-2 text-2xl font-bold">Montag · 16:00 Uhr</h3>
             <p class="mt-3 text-chess-muted">
@@ -252,7 +279,7 @@
             </p>
           </div>
 
-          <div class="rounded-2xl border border-chess-line bg-chess-surface p-6">
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/20 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-chess-accent/60 hover:shadow-2xl hover:shadow-black/30">
             <p class="text-sm uppercase tracking-widest text-chess-muted">Vereinsabend</p>
             <h3 class="mt-2 text-2xl font-bold">Mittwoch · 18:30 Uhr</h3>
             <p class="mt-3 text-chess-muted">
@@ -265,7 +292,8 @@
 
     <!-- Kontakt -->
     <section id="kontakt" class="py-24 scroll-mt-24">
-      <div class="mb-10 max-w-2xl">
+      <div class="mb-10 max-w-2xl relative pl-5">
+      <span class="absolute left-0 top-1 h-12 w-1 rounded-full bg-chess-accent/80"></span>
         <p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-chess-accent">
           Kontakt
         </p>
@@ -276,18 +304,23 @@
       </div>
 
       <div class="grid gap-8 lg:grid-cols-2">
-        <div class="rounded-2xl border border-chess-line bg-chess-surface p-8">
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/20 backdrop-blur-sm">
           <h3 class="text-2xl font-semibold">Kontaktinformationen</h3>
 
           <div class="mt-6 space-y-5 text-chess-muted">
             <div>
               <p class="text-sm uppercase tracking-widest text-chess-accent">Telefon</p>
-              <p class="mt-1 text-base text-chess-text">+41 XX XXX XX XX</p>
+              <a href="tel:+41XXXXXXXXX" class="mt-1 text-base text-chess-text block hover:text-chess-accent">
+                +41 XX XXX XX XX
+              </a>
             </div>
 
             <div>
               <p class="text-sm uppercase tracking-widest text-chess-accent">E-Mail</p>
-              <p class="mt-1 text-base text-chess-text">info@schachclub-pratteln.ch</p>
+              <a href="mailto:info@schachclub-pratteln.ch?subject=Anfrage%20Schachclub%20Pratteln&body=Hallo,%0A%0Aich%20interessiere%20mich%20für%20den%20Schachclub%20Pratteln%20und%20würde%20gerne%20einmal%20vorbeikommen.%0A" 
+              class="mt-1 text-base text-chess-text block hover:text-chess-accent">
+                info@schachclub-pratteln.ch
+              </a>
             </div>
 
             <div>
@@ -319,7 +352,8 @@
   <!-- Footer -->
   <footer class="border-t border-chess-line/50">
     <div class="mx-auto max-w-6xl px-6 py-8 text-center text-sm text-chess-muted">
-      © 2026 Schachclub Pratteln
+      © 2026 Schachclub Pratteln - 
+      4133 Pratteln · Schweiz
     </div>
   </footer>
 </body>
