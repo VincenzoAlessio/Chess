@@ -1,440 +1,356 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="scroll-smooth">
 <head>
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Schachverein Musterstadt</title>
-  <meta name="description" content="Willkommen beim Schachverein Musterstadt – Training, Turniere und Gemeinschaft für alle Spielstärken." />
-  <style>
-    :root {
-      --bg: #0d1117;
-      --bg-soft: #161b22;
-      --card: #1f2630;
-      --text: #f5f7fa;
-      --muted: #aab4c0;
-      --accent: #d4af37;
-      --accent-hover: #f0c94d;
-      --border: rgba(255, 255, 255, 0.08);
-      --max-width: 1100px;
-      --radius: 18px;
-      --shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
-    }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <title>Schachclub Pratteln</title>
+  <meta
+    name="description"
+    content="Offizielle Website des Schachclub Pratteln. Termine, Turniere und Vereinsinformationen."
+  />
+  <meta name="author" content="Schachclub Pratteln" />
+  <meta name="robots" content="index, follow" />
 
-    html {
-      scroll-behavior: smooth;
-    }
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #0b0f14 0%, #11161d 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(92%, var(--max-width));
-      margin: 0 auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-      background: rgba(13, 17, 23, 0.75);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-    }
-
-    .logo {
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      transition: 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .hero {
-      min-height: 92vh;
-      display: grid;
-      place-items: center;
-      padding: 4rem 0;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      font-size: clamp(2.2rem, 5vw, 4.6rem);
-      line-height: 1.05;
-      margin-bottom: 1rem;
-    }
-
-    .hero-text h1 span {
-      color: var(--accent);
-    }
-
-    .hero-text p {
-      color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 650px;
-      margin-bottom: 1.8rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.9rem 1.3rem;
-      border-radius: 12px;
-      font-weight: 700;
-      transition: 0.2s ease;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #111;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border-color: var(--border);
-      color: var(--text);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .hero-card {
-      background: linear-gradient(180deg, #1b212c 0%, #151a22 100%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
-    }
-
-    .chess-board {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-
-    .square {
-      aspect-ratio: 1 / 1;
-      border-radius: 10px;
-    }
-
-    .dark { background: #2b313c; }
-    .light { background: #d9d9d9; }
-
-    section {
-      padding: 5rem 0;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .section-subtitle {
-      color: var(--muted);
-      margin-bottom: 2rem;
-      max-width: 700px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-    }
-
-    .card {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.4rem;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      margin-bottom: 0.7rem;
-      color: var(--accent);
-    }
-
-    .card p {
-      color: var(--muted);
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.2rem;
-    }
-
-    .info-box {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-    }
-
-    .info-box h3 {
-      margin-bottom: 0.7rem;
-      color: var(--accent);
-    }
-
-    .info-box p,
-    .info-box li {
-      color: var(--muted);
-    }
-
-    .info-box ul {
-      padding-left: 1.2rem;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .cards,
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        gap: 1rem;
-        align-items: flex-start;
-        flex-direction: column;
-      }
+  <style type="text/tailwindcss">
+    @theme {
+      --color-chess-bg: #0f0f0f;
+      --color-chess-surface: #18181b;
+      --color-chess-surface-2: #27272a;
+      --color-chess-line: #3f3f46;
+      --color-chess-text: #f4f4f5;
+      --color-chess-muted: #a1a1aa;
+      --color-chess-accent: #d4af37;
     }
   </style>
+
+  <link rel="icon" href="favicon.ico" />
 </head>
-<body>
-  <header>
-    <div class="container nav">
-      <div class="logo">♟️ <span>Schachverein</span> Musterstadt</div>
-      <nav class="nav-links">
-        <a href="#ueber-uns">Über uns</a>
-        <a href="#training">Training</a>
-        <a href="#termine">Termine</a>
-        <a href="#kontakt">Kontakt</a>
+
+
+<body class="scroll-smooth snap-y snap-mandatory bg-chess-bg text-chess-text">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-chess-line/60 bg-chess-bg/90 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="#start" class="text-xl font-bold tracking-wide text-chess-accent">
+        Schachclub Pratteln
+      </a>
+
+      <nav>
+        <ul class="flex flex-wrap gap-5 text-sm font-medium text-chess-muted">
+          <li><a href="#start" class="transition hover:text-chess-accent">Start</a></li>
+          <li><a href="#erwartung" class="transition hover:text-chess-accent">Was dich erwartet</a></li>
+          <li><a href="#termine" class="transition hover:text-chess-accent">Termine</a></li>
+          <li><a href="#kontakt" class="transition hover:text-chess-accent">Kontakt</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <h1>Strategie. Gemeinschaft. <span>Schach.</span></h1>
-          <p>
-            Willkommen beim Schachverein Musterstadt. Egal ob Anfänger oder Turnierspieler:
-            Bei uns findest du Training, spannende Partien und eine starke Gemeinschaft.
+  <!-- Hauptinhalt -->
+  <main class="max-w-8xl mx-auto px-8">
+    <!-- Hero -->
+    <section id="start"
+    class="min-h-screen snap-start flex items-center scroll-mt-24"> 
+
+      <div class="absolute inset-0 bg-gradient-to-b from-chess-surface/40 to-transparent"></div>
+
+      <div class="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
+        <div class="max-w-3xl">
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-chess-accent">
+            Strategie. Gemeinschaft. Spannung.
           </p>
-          <div class="hero-buttons">
-            <a href="#kontakt" class="btn btn-primary">Jetzt vorbeikommen</a>
-            <a href="#training" class="btn btn-secondary">Mehr erfahren</a>
-          </div>
-        </div>
 
-        <div class="hero-card">
-          <div class="chess-board">
-            <div class="square dark"></div>
-            <div class="square light"></div>
-            <div class="square dark"></div>
-            <div class="square light"></div>
-            <div class="square light"></div>
-            <div class="square dark"></div>
-            <div class="square light"></div>
-            <div class="square dark"></div>
-            <div class="square dark"></div>
-            <div class="square light"></div>
-            <div class="square dark"></div>
-            <div class="square light"></div>
-            <div class="square light"></div>
-            <div class="square dark"></div>
-            <div class="square light"></div>
-            <div class="square dark"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+          <h1 class="text-4xl font-extrabold leading-tight md:text-6xl">
+            Make your Move!
+          </h1>
 
-    <section id="ueber-uns">
-      <div class="container">
-        <h2 class="section-title">Über uns</h2>
-        <p class="section-subtitle">
-          Unser Verein verbindet Schachbegeisterte aller Alters- und Spielklassen.
-          Der Fokus liegt auf Spielspaß, Weiterentwicklung und gemeinsamen Events.
-        </p>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-chess-muted md:text-xl">
+            Entdecke den Schachclub Pratteln und erlebe echte Partien am Brett.
+            Ob Anfänger oder erfahrener Spieler – bei uns bist du willkommen.
+          </p>
 
-        <div class="cards">
-          <div class="card">
-            <h3>Für Einsteiger</h3>
-            <p>Du brauchst keine Vorkenntnisse. Wir helfen dir beim Einstieg und zeigen dir die Grundlagen.</p>
-          </div>
-          <div class="card">
-            <h3>Für Fortgeschrittene</h3>
-            <p>Vertiefe Taktik, Strategie und Eröffnungen in Trainingsabenden und freien Partien.</p>
-          </div>
-          <div class="card">
-            <h3>Für Turnierspieler</h3>
-            <p>Nimm an Vereinsmeisterschaften, externen Turnieren und Teamwettkämpfen teil.</p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a
+              href="#kontakt"
+              class="rounded-xl bg-chess-accent px-6 py-3 font-semibold text-black transition hover:scale-[1.02]"
+            >
+              Jetzt Kontakt aufnehmen
+            </a>
+
+            <a
+              href="#termine"
+              class="rounded-xl border border-chess-line bg-chess-surface px-6 py-3 font-semibold text-chess-text transition hover:border-chess-accent hover:text-chess-accent"
+            >
+              Termine ansehen
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="training">
-      <div class="container">
-        <h2 class="section-title">Training & Vereinsleben</h2>
-        <p class="section-subtitle">
-          Hier kannst du eure echten Vereinszeiten, Trainingsangebote und Spezialevents eintragen.
-        </p>
+    <!-- Erwartung -->
+    <section id="erwartung" class="py-24 scroll-mt-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="mb-10 max-w-2xl">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-chess-accent">
+        Was dich erwartet
+      </p>
+      <h2 class="text-3xl font-bold md:text-4xl">
+        Ein Verein mit Fokus auf echtes Schach
+      </h2>
+      <p class="mt-4 text-chess-muted">
+        Ruhige Atmosphäre, spannende Partien und regelmässige Begegnungen mit Menschen,
+        die Schach nicht nur online, sondern am Brett lieben.
+      </p>
+    </div>
 
-        <div class="info-grid">
-          <div class="info-box">
-            <h3>Trainingszeiten</h3>
-            <ul>
-              <li>Mittwoch: 19:00 – 21:30 Uhr</li>
-              <li>Freitag: Freies Spiel ab 19:30 Uhr</li>
-              <li>Jugendtraining: Samstag 10:00 – 12:00 Uhr</li>
-            </ul>
-          </div>
+    <div class="relative">
+      <!-- Pfeil links -->
+      <button
+        id="prevSlide" type="button"
+        class="absolute left-0 top-1/2 z-20 -translate-y-1/2 rounded-full border border-chess-line bg-chess-surface/90 px-4 py-3 text-xl text-chess-text shadow-lg backdrop-blur transition hover:border-chess-accent hover:text-chess-accent"
+        aria-label="Vorheriger Slide"
+      >
+        ←
+      </button>
 
-          <div class="info-box">
-            <h3>Was dich erwartet</h3>
-            <ul>
-              <li>Freies Spielen</li>
-              <li>Analysen und Taktiktraining</li>
-              <li>Vereinsinterne Turniere</li>
-              <li>Gemeinschaft und Austausch</li>
-            </ul>
-          </div>
+      <!-- Pfeil rechts -->
+      <button
+        id="nextSlide" type="button"
+        class="absolute right-0 top-1/2 z-20 -translate-y-1/2 rounded-full border border-chess-line bg-chess-surface/90 px-4 py-3 text-xl text-chess-text shadow-lg backdrop-blur transition hover:border-chess-accent hover:text-chess-accent"
+        aria-label="Nächster Slide"
+      >
+        →
+      </button>
+
+      <!-- Slider Fenster -->
+      <div class="overflow-hidden px-12">
+        <div id="carouselTrack" class="relative h-[420px]">
+          
+          <article class="carousel-slide absolute left-1/2 top-1/2 w-[78%] max-w-xl rounded-3xl border border-chess-line bg-chess-surface p-8 shadow-2xl shadow-black/30 transition-all duration-700 ease-in-out">
+            <div class="mb-6 h-44 rounded-2xl bg-zinc-800"></div>
+            <h3 class="text-2xl font-semibold">Familiäre Atmosphäre</h3>
+            <p class="mt-3 leading-7 text-chess-muted">
+              Wir sind ein kleiner Verein mit persönlicher Atmosphäre. Neue Spieler
+              sind jederzeit willkommen.
+            </p>
+          </article>
+
+          <article class="carousel-slide absolute left-1/2 top-1/2 w-[78%] max-w-xl rounded-3xl border border-chess-line bg-chess-surface p-8 shadow-2xl shadow-black/30 transition-all duration-700 ease-in-out">
+            <div class="mb-6 h-44 rounded-2xl bg-zinc-800"></div>
+            <h3 class="text-2xl font-semibold">Regelmässige Spielabende</h3>
+            <p class="mt-3 leading-7 text-chess-muted">
+              Jede Woche treffen wir uns zu spannenden Partien. Die genauen Termine
+              findest du weiter unten.
+            </p>
+          </article>
+
+          <article class="carousel-slide absolute left-1/2 top-1/2 w-[78%] max-w-xl rounded-3xl border border-chess-line bg-chess-surface p-8 shadow-2xl shadow-black/30 transition-all duration-700 ease-in-out">
+            <div class="mb-6 h-44 rounded-2xl bg-zinc-800"></div>
+            <h3 class="text-2xl font-semibold">Tipps und Tricks</h3>
+            <p class="mt-3 leading-7 text-chess-muted">
+              Egal ob Anfänger oder erfahrener Spieler – bei uns lernst du ständig
+              etwas dazu.
+            </p>
+          </article>
+
+          <article class="carousel-slide absolute left-1/2 top-1/2 w-[78%] max-w-xl rounded-3xl border border-chess-line bg-chess-surface p-8 shadow-2xl shadow-black/30 transition-all duration-700 ease-in-out">
+            <div class="mb-6 h-44 rounded-2xl bg-zinc-800"></div>
+            <h3 class="text-2xl font-semibold">Am Brett zählt es</h3>
+            <p class="mt-3 leading-7 text-chess-muted">
+              Lass die Online-Partien beiseite und spiel eine echte Partie mit uns.
+            </p>
+          </article>
+
+          <article class="carousel-slide absolute left-1/2 top-1/2 w-[78%] max-w-xl rounded-3xl border border-chess-line bg-gradient-to-br from-chess-surface to-chess-surface-2 p-8 shadow-2xl shadow-black/30 transition-all duration-700 ease-in-out">
+            <div class="mb-6 h-44 rounded-2xl bg-zinc-800"></div>
+            <h3 class="text-2xl font-semibold text-chess-accent">Messe dich am Brett</h3>
+            <p class="mt-3 leading-7 text-chess-muted">
+              Turniere. Wettbewerb. Spannung. Erlebe Schach in seiner besten Form.
+            </p>
+          </article>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="termine">
-      <div class="container">
-        <h2 class="section-title">Nächste Termine</h2>
-        <p class="section-subtitle">
-          Hier kannst du die wichtigsten Termine für euren Verein aktuell halten.
-        </p>
-
-        <div class="cards">
-          <div class="card">
-            <h3>15. April</h3>
-            <p>Vereinsabend mit Blitzturnier ab 19:00 Uhr.</p>
-          </div>
-          <div class="card">
-            <h3>04. Mai</h3>
-            <p>Offenes Training für Interessierte und neue Mitglieder.</p>
-          </div>
-          <div class="card">
-            <h3>18. Mai</h3>
-            <p>Interne Vereinsmeisterschaft – Runde 1.</p>
-          </div>
+    <!-- Termine -->
+    <section id="termine" class="py-24 scroll-mt-24">
+      <div class="mx-auto max-w-6xl px-6 py-20">
+        <div class="mb-10 max-w-2xl">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-chess-accent">
+            Termine
+          </p>
+          <h2 class="text-3xl font-bold md:text-4xl">Unsere regelmässigen Treffen</h2>
+          <p class="mt-4 text-chess-muted">
+            Hier findest du die wichtigsten Vereinszeiten auf einen Blick.
+          </p>
         </div>
-      </div>
-    </section>
 
-    <section id="kontakt">
-      <div class="container">
-        <h2 class="section-title">Kontakt</h2>
-        <p class="section-subtitle">
-          Trag hier eure echten Kontaktdaten ein.
-        </p>
-
-        <div class="info-grid">
-          <div class="info-box">
-            <h3>Vereinslokal</h3>
-            <p>
-              Schachverein Musterstadt<br />
-              Musterstrasse 12<br />
-              8000 Musterstadt
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="rounded-2xl border border-chess-line bg-chess-surface p-6">
+            <p class="text-sm uppercase tracking-widest text-chess-muted">Jugendtraining</p>
+            <h3 class="mt-2 text-2xl font-bold">Montag · 16:00 Uhr</h3>
+            <p class="mt-3 text-chess-muted">
+              Für junge Spieler, die ihre Grundlagen verbessern und Spass am Spiel entwickeln wollen.
             </p>
           </div>
 
-          <div class="info-box">
-            <h3>Kontakt</h3>
-            <p>
-              E-Mail: kontakt@schachverein-musterstadt.ch<br />
-              Telefon: +41 00 000 00 00<br />
-              Instagram / Facebook / Lichess / Chess.com
+          <div class="rounded-2xl border border-chess-line bg-chess-surface p-6">
+            <p class="text-sm uppercase tracking-widest text-chess-muted">Vereinsabend</p>
+            <h3 class="mt-2 text-2xl font-bold">Mittwoch · 18:30 Uhr</h3>
+            <p class="mt-3 text-chess-muted">
+              Unser regelmässiger Abend für Partien, Austausch und gemeinsames Schach am Brett.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="py-24 scroll-mt-24">
+      <div class="mb-10 max-w-2xl">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-chess-accent">
+          Kontakt
+        </p>
+        <h2 class="text-3xl font-bold md:text-4xl">Melde dich bei uns</h2>
+        <p class="mt-4 text-chess-muted">
+          Du möchtest vorbeikommen oder hast Fragen zum Verein? Dann nimm einfach Kontakt auf.
+        </p>
+      </div>
+
+      <div class="grid gap-8 lg:grid-cols-2">
+        <div class="rounded-2xl border border-chess-line bg-chess-surface p-8">
+          <h3 class="text-2xl font-semibold">Kontaktinformationen</h3>
+
+          <div class="mt-6 space-y-5 text-chess-muted">
+            <div>
+              <p class="text-sm uppercase tracking-widest text-chess-accent">Telefon</p>
+              <p class="mt-1 text-base text-chess-text">+41 XX XXX XX XX</p>
+            </div>
+
+            <div>
+              <p class="text-sm uppercase tracking-widest text-chess-accent">E-Mail</p>
+              <p class="mt-1 text-base text-chess-text">info@schachclub-pratteln.ch</p>
+            </div>
+
+            <div>
+              <p class="text-sm uppercase tracking-widest text-chess-accent">Hinweis</p>
+              <p class="mt-1 leading-7">
+                Ersetze Telefonnummer und E-Mail noch mit den echten Vereinsdaten.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-chess-line bg-chess-surface p-3">
+          <div class="overflow-hidden rounded-xl">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25795.7337555952!2d7.672792316853858!3d47.5160567901551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4791b617515cd459%3A0x50f2c0c80a08b130!2s4133%20Pratteln!5e1!3m2!1sde!2sch!4v1773567633207!5m2!1sde!2sch"
+              class="h-[420px] w-full"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Standort Schachclub Pratteln"
+            ></iframe>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      © 2026 Schachverein Musterstadt – Alle Rechte vorbehalten
+  <!-- Footer -->
+  <footer class="border-t border-chess-line/50">
+    <div class="mx-auto max-w-6xl px-6 py-8 text-center text-sm text-chess-muted">
+      © 2026 Schachclub Pratteln
     </div>
   </footer>
 </body>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".carousel-slide");
+    const prevBtn = document.getElementById("prevSlide");
+    const nextBtn = document.getElementById("nextSlide");
+
+    if (!slides.length || !prevBtn || !nextBtn) {
+      console.log("Slider-Elemente nicht gefunden");
+      return;
+    }
+
+    let current = 0;
+    let autoSlide;
+
+    function updateCarousel() {
+      slides.forEach((slide, index) => {
+        let offset = index - current;
+
+        if (offset < -1) offset += slides.length;
+        if (offset > 1) offset -= slides.length;
+
+        slide.style.transition = "all 0.7s ease";
+
+        if (offset === 0) {
+          slide.style.transform = "translate(-50%, -50%) scale(1)";
+          slide.style.opacity = "1";
+          slide.style.zIndex = "30";
+        } else if (offset === -1) {
+          slide.style.transform = "translate(calc(-50% - 260px), -50%) scale(0.85)";
+          slide.style.opacity = "0.45";
+          slide.style.zIndex = "20";
+        } else if (offset === 1) {
+          slide.style.transform = "translate(calc(-50% + 260px), -50%) scale(0.85)";
+          slide.style.opacity = "0.45";
+          slide.style.zIndex = "20";
+        } else {
+          slide.style.transform = "translate(-50%, -50%) scale(0.7)";
+          slide.style.opacity = "0";
+          slide.style.zIndex = "10";
+        }
+      });
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      updateCarousel();
+    }
+
+    function prevSlideFn() {
+      current = (current - 1 + slides.length) % slides.length;
+      updateCarousel();
+    }
+
+    prevBtn.addEventListener("click", prevSlideFn);
+    nextBtn.addEventListener("click", nextSlide);
+
+    function startAutoSlide() {
+      autoSlide = setInterval(nextSlide, 4000);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(autoSlide);
+    }
+
+    prevBtn.addEventListener("click", () => {
+      stopAutoSlide();
+      prevSlideFn();
+      startAutoSlide();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      stopAutoSlide();
+      nextSlide();
+      startAutoSlide();
+    });
+
+    updateCarousel();
+    startAutoSlide();
+  });
+</script>
+
 </html>
